@@ -36,10 +36,8 @@ async fn it_works() {
 
     // Get the PostgreSQL port
     let pg_port = pg_container.get_host_port_ipv4(5432);
-    // Define the connection URL d
-    let url = &format!("host=127.0.0.1 port={pg_port}");
-    println!("{}", url);
 
+    // Define the connection to the Postgress client
     let (client, connection) = tokio_postgres::Config::new()
         .user("postgres")
         .password("postgres")
